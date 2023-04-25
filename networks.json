@@ -2,6 +2,9 @@
   "fuji": {
     "Vault": {
       "address": "0x210393942f071ab30df8c49345e5c42b28965804"
+    },
+    "VaultEurUsd": {
+      "address": "0xb6095B28257287EE730c5B18Aa6Ede2AF5b47FA8"
     }
   }
 }

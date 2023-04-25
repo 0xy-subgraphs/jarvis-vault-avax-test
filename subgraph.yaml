@@ -3,27 +3,27 @@ schema:
   file: ./schema.graphql
 dataSources:
   - kind: ethereum
-    name: Vault
+    name: VaultEurUsd
     network: fuji
     source:
       address: "0x210393942f071ab30df8c49345e5c42b28965804"
       abi: Vault
+      startBlock: 20351100 
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
       language: wasm/assemblyscript
       entities:
-        - AdminChanged
-        - BeaconUpgraded
-        - Upgraded
+        - Deposit
+        - Withdraw
       abis:
         - name: Vault
           file: ./abis/Vault.json
+        - name: SynthereumPool
+          file: ./abis/SynthereumPool.json
       eventHandlers:
-        - event: AdminChanged(address,address)
-          handler: handleAdminChanged
-        - event: BeaconUpgraded(indexed address)
-          handler: handleBeaconUpgraded
-        - event: Upgraded(indexed address)
-          handler: handleUpgraded
+        - event: Deposit(uint256,uint256,uint256,uint256)
+          handler: handleDeposit
+        - event: Withdraw(uint256,uint256,uint256)
+          handler: handleWithdraw
       file: ./src/vault.ts

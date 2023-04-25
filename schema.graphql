@@ -1,24 +1,15 @@
-type AdminChanged @entity(immutable: true) {
+type LiquidityDeposit @entity(immutable: false) {
   id: Bytes!
-  previousAdmin: Bytes! # address
-  newAdmin: Bytes! # address
-  blockNumber: BigInt!
-  blockTimestamp: BigInt!
-  transactionHash: Bytes!
+  lpAddress: Bytes! # address
+  vaultAddress: Bytes! # address
+  totalDeposited: BigInt! # uint256
 }
 
-type BeaconUpgraded @entity(immutable: true) {
+type LiquidityWithdraw @entity(immutable: false) {
   id: Bytes!
-  beacon: Bytes! # address
-  blockNumber: BigInt!
-  blockTimestamp: BigInt!
-  transactionHash: Bytes!
+  lpAddress: Bytes! # address
+  vaultAddress: Bytes! # address
+  totalWithdrawn: BigInt! # uint256
 }
 
-type Upgraded @entity(immutable: true) {
-  id: Bytes!
-  implementation: Bytes! # address
-  blockNumber: BigInt!
-  blockTimestamp: BigInt!
-  transactionHash: Bytes!
-}
+
